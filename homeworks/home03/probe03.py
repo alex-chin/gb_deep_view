@@ -10,10 +10,11 @@ class BuildModel:
         self.model = self.build_base(self.is_fine_tuning)
 
     def build_seq(self):
-        return tf.keras.Sequential([self.basemodel,
-                                    tf.keras.layers.GlobalAveragePooling2D(),
-                                    tf.keras.layers.Dense(101, activation='softmax'),
-                                    ])
+        return tf.keras.Sequential(
+            [self.basemodel,
+             tf.keras.layers.GlobalAveragePooling2D(),
+             tf.keras.layers.Dense(101, activation='softmax'),
+             ])
 
     def build_base(self, is_fine_tuning):
         return None
